@@ -956,6 +956,7 @@ main {
 .project-img {
   position: relative;
   width: 100%;
+  aspect-ratio: 600 / 451;
   height: 200px;
   border-radius: 16px;
   overflow: hidden;
@@ -1010,7 +1011,10 @@ main {
 .project-item > a:hover img { transform: scale(1.1); }
 
 .project-title,
-.project-category { margin-left: 10px; }
+.project-category { 
+  margin-left: 10px; 
+  text-align: center;
+}
 
 .project-title {
   color: var(--white-2);
@@ -1070,7 +1074,8 @@ main {
 .blog-banner-box img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
+  object-position: center;
   transition: var(--transition-1);
 }
 
@@ -1886,4 +1891,87 @@ textarea.form-input::-webkit-resizer { display: none; }
 
   .timeline-text { max-width: 700px; }
 
+}
+
+/* Resume download button - sidebar version */
+.resume-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--border-gradient-onyx);
+  color: var(--orange-yellow-crayola);
+  padding: 10px 15px;
+  border-radius: 12px;
+  font-size: var(--fs-6);
+  font-weight: var(--fw-500);
+  position: relative;
+  z-index: 1;
+  transition: var(--transition-1);
+}
+
+.resume-btn::before {
+  content: "";
+  position: absolute;
+  inset: 1px;
+  background: var(--bg-gradient-jet);
+  border-radius: inherit;
+  z-index: -1;
+  transition: var(--transition-1);
+}
+
+.resume-btn:hover {
+  background: var(--bg-gradient-yellow-1);
+}
+
+.resume-btn:hover::before {
+  background: var(--bg-gradient-yellow-2);
+}
+
+.resume-btn ion-icon {
+  font-size: 18px;
+}
+
+/* Resume download button - large version for About section */
+.resume-section {
+  margin-top: 30px;
+  text-align: center;
+}
+
+.resume-btn-large {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  background: var(--border-gradient-onyx);
+  color: var(--orange-yellow-crayola);
+  padding: 15px 30px;
+  border-radius: 14px;
+  font-size: var(--fs-5);
+  font-weight: var(--fw-600);
+  position: relative;
+  box-shadow: var(--shadow-3);
+  z-index: 1;
+  transition: var(--transition-1);
+}
+
+.resume-btn-large::before {
+  content: "";
+  position: absolute;
+  inset: 1px;
+  background: var(--bg-gradient-jet);
+  border-radius: inherit;
+  z-index: -1;
+  transition: var(--transition-1);
+}
+
+.resume-btn-large:hover {
+  background: var(--bg-gradient-yellow-1);
+  transform: translateY(-2px);
+}
+
+.resume-btn-large:hover::before {
+  background: var(--bg-gradient-yellow-2);
+}
+
+.resume-btn-large ion-icon {
+  font-size: 20px;
 }
